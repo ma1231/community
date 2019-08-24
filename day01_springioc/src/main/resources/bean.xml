@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- 创建bean的三种方式 -->
+    <!-- 默认方式 -->
+    <!-- 构造函数注入 -->
+ <!--   <bean id="accountService" class="com.itheima.service.impl.AccountServiceImpl">
+        <constructor-arg name="name" value="test"></constructor-arg>
+        <constructor-arg name="age" value="18"></constructor-arg>
+        <constructor-arg name="birthday" ref="now"></constructor-arg>
+    </bean>-->
+    <bean id="now" class="java.util.Date"></bean>
+
+    
+    <bean id="accountService2" class="com.itheima.service.impl.AccountServiceImpl">
+        <property name="name" value="zhangsan"></property>
+        <property name="age" value="11"></property>
+        <property name="birthday" ref="now"></property>
+    </bean>
+    <!-- 使用普通工厂（某个类）中的方法创建对象 -->
+   <!-- <bean id="instanceFactory" class="com.itheima.factory.InstanceFactory"></bean>
+    <bean id="accountService" factory-bean="instanceFactory" factory-method="getAccountService"></bean>
+-->
+    <!-- 使用工厂中的静态方法创建对象 -->
+   <!-- <bean id="accountService" class="com.itheima.factory.staticFactory" factory-method="getAccountService"></bean>
+-->
+
+</beans>
